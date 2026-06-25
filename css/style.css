@@ -1,7 +1,7 @@
-﻿/* ========================================
+/* ========================================
 	煮る茶の秘密基地（個人サイト）
 	作者：煮る茶
-	最終更新：2026/06/25
+	最終更新：2026/06/26
 	ファイル：style.css
    ======================================== */
 
@@ -14,6 +14,7 @@
 *,
 *::before,
 *::after {
+	/* padding・border込みでサイズ計算（レイアウト崩れ防止） */
 	box-sizing: border-box;
 }
 
@@ -22,11 +23,12 @@ html {
 	/* 文字サイズ */
 	font-size: 16px;
 
-	/* スマホ等での自動文字拡大を抑制  */
+	/* スマホ等での自動文字拡大を抑制（WebKit系）  */
 	-webkit-text-size-adjust: 100%;
+	/* スマホ等での自動文字拡大を抑制  */
 	text-size-adjust: 100%;
 
-	/* スクロールバーを固定  */
+	/* スクロールバーを右に固定  */
 	overflow-y: scroll;
 }
 
@@ -110,6 +112,7 @@ header {
 #home img {
 	/* サイズ */
 	width: 100%;
+
 	/* アニメーションの変化速度
    transform : 移動
    filter    : 明るさ */
@@ -148,8 +151,8 @@ header {
 	/* 文字サイズ */
 	font-size: clamp(10px, 2vw, 14px);
 
-	/* 内側の余白（全体） */
-	padding: 10px;
+	/* 外側の余白（全体） */
+	margin: 10px;
 
 	/* メインとサイドの間隔 */
 	gap: 10px;
@@ -159,7 +162,6 @@ header {
 #main {
 	/* 使用する画面の割合 */
 	flex: 5;
-	min-width: 0;
 	/* 内側の余白（全体をリセット） */
 	padding: 0;
 	/* 外側の余白（全体をリセット） */
@@ -170,6 +172,8 @@ header {
 #sub {
 	/* 使用する画面の割合 */
 	flex: 2;
+
+
 	min-width: 0;
 	/* 内側の余白（全体をリセット） */
 	padding: 0;
@@ -262,8 +266,11 @@ nav ul li {
 
 /* リンクボタン */
 nav ul li a {
+
+	/* blockレイアウトを有効にする */
 	display: block;
 
+	/* padding・border込みでサイズ計算 */
 	box-sizing: border-box;
 
 	/* 文字サイズ */
@@ -286,13 +293,15 @@ nav ul li a {
 	/* リンク線の削除 */
 	text-decoration: none;
 
-	/* アニメーション */
+	/* アニメーションの変化速度
+   transform : 移動
+   background-color : 背景色 */
 	transition:
 		transform 0.5s ease,
 		background-color 0.5s ease;
 }
 
-/* ホバー */
+/* ナビゲーションにマウスを乗せた時の設定 */
 nav ul li a:hover {
 	/* 背景色 */
 	background-color: #6b7e51;
@@ -300,7 +309,7 @@ nav ul li a:hover {
 	transform: translateY(-5px);
 }
 
-/* クリック */
+/* ナビゲーションをマウスでクリックした時の設定 */
 nav ul li a:active {
 	/* 変形 */
 	transform: translateY(0px);
@@ -335,7 +344,6 @@ h6 {
 
 	/* 縁取り */
 	border-bottom: 2px solid #001f0c;
-	padding-left: 10px;
 }
 
 /* サイズ */
@@ -345,6 +353,7 @@ h3,
 h4,
 h5,
 h6 {
+	/* 文字サイズ */
 	font-size: clamp(10px, 2vw, 15px);
 }
 
@@ -473,7 +482,9 @@ h6::before {
 	/* 外側の余白（下） */
 	margin-bottom: 20px;
 
-	/* 変形 */
+	/* アニメーションの変化速度
+   transform : 移動
+   filter    : 明るさ */
 	transition:
 		transform 0.5s ease,
 		filter 0.5s ease;
@@ -482,6 +493,7 @@ h6::before {
 	will-change: transform;
 }
 
+/* バナーにマウスを乗せた時の設定 */
 .banner img:hover {
 	/* 加工 */
 	filter: brightness(1.1);
@@ -489,6 +501,7 @@ h6::before {
 	transform: translateY(-5px);
 }
 
+/* バナーをマウスでクリックした時の設定 */
 .banner img:active {
 	/* 変形 */
 	transform: translateY(0px);
@@ -562,15 +575,19 @@ h6::before {
 	/* 横方向の中央揃え（flex） */
 	justify-content: center;
 
+	/* padding・border込みでサイズ計算 */
 	box-sizing: border-box;
+
+	/* 内側の余白（全体） */
+	padding: 5px;
 
 	/* 外側の余白（全体） */
 	margin: 10px;
-	padding: 5px;
 
 	/* 間隔 */
 	gap: clamp(50px, 3vw, 100px);
 
+	/* 文字サイズ */
 	font-size: clamp(9px, 1.5vw, 14px);
 }
 
@@ -582,6 +599,7 @@ h6::before {
 	text-decoration: none;
 }
 
+/* ブログリストのテキストにマウスを乗せた時の設定 */
 .b-page a:hover {
 	/* リンク線の削除 */
 	text-decoration: underline;
@@ -717,9 +735,13 @@ h6::before {
 	/* 縁取り */
 	border: 2px solid #001f0c;
 
+	/* 中身のサイズに合わせた幅変更 */
 	width: fit-content;
 
-	/* 変形 */
+	/* アニメーションの変化速度
+   transform : 移動
+   filter    : 明るさ
+   background-color : 背景色 */
 	transition:
 		transform 0.5s ease,
 		filter 0.5s ease,
@@ -742,6 +764,7 @@ h6::before {
 /* テキスト */
 .p-text {
 
+	/* 使う画面の割合 */
 	flex: 1;
 
 	/* 文字サイズ */
@@ -752,7 +775,7 @@ h6::before {
 	margin: 10px clamp(15px, 4vw, 50px);
 }
 
-/* ホバー */
+/* プロフィール画像にマウスを乗せた時の設定 */
 .profile:hover {
 	/* 文字色*/
 	color: #1d3f29;
@@ -766,6 +789,7 @@ h6::before {
 	transform: translateY(-5px);
 }
 
+/* プロフィール画像をマウスでクリックした時の設定 */
 .profile:active {
 	/* 変形 */
 	transform: translateY(0px);
@@ -775,10 +799,12 @@ h6::before {
 /* 960px以下 */
 @media screen and (max-width: 960px) {
 	.profile img {
+		/* サイズ */
 		width: 150px;
 	}
 
 	.p-text {
+		/* 文字サイズ */
 		font-size: 13px;
 	}
 }
@@ -786,10 +812,12 @@ h6::before {
 /* 768px以下 */
 @media screen and (max-width: 768px) {
 	.profile img {
+		/* サイズ */
 		width: 130px;
 	}
 
 	.p-text {
+		/* 文字サイズ */
 		font-size: 11px;
 	}
 }
@@ -797,11 +825,13 @@ h6::before {
 /* 570px以下 */
 @media screen and (max-width: 570px) {
 	.profile img {
-		width: 117px;
+		/* サイズ */
+		width: 95px;
 	}
 
 	.p-text {
-		font-size: 9px;
+		/* 文字サイズ */
+		font-size: 8px;
 	}
 }
 
@@ -825,6 +855,7 @@ h6::before {
 /* ボタン本体 */
 .btn,
 .btn-contact {
+	/* 使用する画面の割合 */
 	flex: 0 1 110px;
 
 	/* 文字サイズ */
@@ -848,13 +879,15 @@ h6::before {
 	/* リンク線の削除 */
 	text-decoration: none;
 
-	/* 変形 */
+	/* アニメーションの変化速度
+   transform : 移動
+   background-color : 背景色 */
 	transition:
 		transform 0.5s ease,
 		background-color 0.5s ease;
 }
 
-/* ホバー */
+/* リンクボタンにマウスを乗せた時の設定 */
 .btn:hover,
 .btn-contact:hover {
 	/* 背景色 */
@@ -863,6 +896,7 @@ h6::before {
 	transform: translateY(-5px);
 }
 
+/* リンクボタンをマウスでクリックした時の設定 */
 .btn:active,
 .btn-contact:active {
 	/* 変形 */
