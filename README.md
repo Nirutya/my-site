@@ -12,4 +12,4 @@
   
 まだまだ制作途中のサイトですが、少しずつ更新していく予定です。  
 
-URL:（ https://nirutya.github.io/my-site/ ）
+URL:（ https://nirutya.github.io/ ）
